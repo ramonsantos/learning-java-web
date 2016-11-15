@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import me.ramonsantos.jdbc.dao.ContatoDao;
-import me.ramonsantos.jdbc.modelo.Contato;
+import me.ramonsantos.dao.ContatoDao;
+import me.ramonsantos.modelo.Contato;
 
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet {

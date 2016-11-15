@@ -1,4 +1,4 @@
-package me.ramonsantos.jdbc.dao;
+package me.ramonsantos.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import me.ramonsantos.jdbc.ConnectionFactory;
-import me.ramonsantos.jdbc.modelo.Contato;
+import me.ramonsantos.modelo.Contato;
 
 public class ContatoDao {
 

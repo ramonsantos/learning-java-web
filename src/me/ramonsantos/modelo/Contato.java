@@ -1,4 +1,4 @@
-package me.ramonsantos.jdbc.modelo;
+package me.ramonsantos.modelo;
 
 import java.util.Calendar;
 
