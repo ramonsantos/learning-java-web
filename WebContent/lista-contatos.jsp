@@ -10,7 +10,7 @@
 <body>
 	<c:import url="cabecalho.jsp" />
 
-	<jsp:useBean id="dao" class="me.ramonsantos.dao.ContatoDao" />
+
 
 	<table>
 		<tr>
@@ -19,7 +19,7 @@
 			<td>Endereço</td>
 			<td>Data de Nascimento</td>
 		</tr>
-		<c:forEach var="contato" items="${dao.lista}">
+		<c:forEach var="contato" items="${contatos}">
 			<tr>
 				<td>${contato.nome}</td>
 				<td><c:if test="${not empty contato.email}">
