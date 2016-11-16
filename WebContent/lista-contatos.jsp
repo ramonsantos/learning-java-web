@@ -27,6 +27,7 @@
 					</c:if> <c:if test="${empty contato.email}">E-mail não informado</c:if></td>
 				<td>${contato.endereco}</td>
 				<td>${contato.dataNascimento.time}</td>
+				<td><a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a></td>
 			</tr>
 		</c:forEach>
 	</table>
