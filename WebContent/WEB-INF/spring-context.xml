@@ -18,6 +18,13 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/db_learning_java_web" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
 	<!-- gerenciamento de jpa pelo spring -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
