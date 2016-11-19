@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Tarefa {
@@ -15,6 +17,8 @@ public class Tarefa {
 	@GeneratedValue
 	private Long id;
 
+	@NotNull
+	@Size(min = 5)
 	private String descricao;
 	private boolean finalizado;
 

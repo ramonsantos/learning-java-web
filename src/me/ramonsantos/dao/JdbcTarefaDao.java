@@ -27,13 +27,14 @@ public class JdbcTarefaDao {
 
 	public void adiciona(Tarefa tarefa) {
 
-		String sql = "insert into tarefas " + "(descricao,dataFinalizacao)" + " values (?,?)";
+		String sql = "insert into tarefas " + "(descricao,dataFinalizacao, finalizado)" + " values (?,?,?)";
 
 		try {
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, tarefa.getDescricao());
 			stmt.setDate(2, new Date(Calendar.getInstance().getTimeInMillis()));
+			stmt.setBoolean(3, false);
 
 			stmt.execute();
 			stmt.close();
