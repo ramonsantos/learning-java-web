@@ -23,6 +23,12 @@
 	<%=desenvolvido%>
 
 	<br />
+	<br />
+	<br />
+
+
+	<a href="http://localhost:8080/learning-java-web/novaTarefa">Add
+		Tarefa</a>
 
 	<%
 		System.out.println("Tudo foi executado!");
