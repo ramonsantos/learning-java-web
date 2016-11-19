@@ -71,4 +71,10 @@ public class Tarefa {
 
 	}
 
+	public void setId(Long id) {
+
+		this.id = id;
+
+	}
+
 }

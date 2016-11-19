@@ -29,6 +29,11 @@
 
 	<a href="http://localhost:8080/learning-java-web/novaTarefa">Add
 		Tarefa</a>
+	<br />
+	<a href="http://localhost:8080/learning-java-web/listaTarefas">List
+		Tarefa</a>
+
+
 
 	<%
 		System.out.println("Tudo foi executado!");
