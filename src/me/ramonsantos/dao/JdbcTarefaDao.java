@@ -146,4 +146,13 @@ public class JdbcTarefaDao {
 
 	}
 
+	public void finaliza(Long id) {
+
+		Tarefa tarefa = buscaPorId(id);
+		tarefa.setFinalizado(true);
+
+		this.altera(tarefa);
+
+	}
+
 }
