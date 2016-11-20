@@ -21,42 +21,47 @@ public class TaskController {
 	@Autowired
 	ITaskDao dao;
 
-	@RequestMapping("novaTarefa")
+	@RequestMapping("newTask")
 	public String form() {
 
-		return "tarefa/formulario";
+		return "task/form";
 
 	}
 
 	@RequestMapping("addTask")
-	public String add(@Valid Task task, BindingResult result) {
+	public String add(@Valid Task task, BindingResult result, Model model) {
 
 		if (result.hasFieldErrors("description")) {
 
-			return "tarefa/formulario";
+			return "task/form";
 
 		}
 
 		dao.add(task);
-		return "tarefa/adicionada";
+
+		model.addAttribute("task", dao.findById(task.getId()));
+
+		return "task/added";
 
 	}
 
-	@RequestMapping("listaTarefas")
+	@RequestMapping("listTask")
 	public String list(Model model) {
 
 		model.addAttribute("tasks", dao.list());
 
-		return "tarefa/lista";
+		return "task/list";
 
 	}
 
-	@RequestMapping("removeTarefa")
+	@RequestMapping("removeTask")
 	public String remove(Task task) {
 
+		System.out.println("Id:- " + task.getId());
+		System.out.println("Desc: " + task.getDescription());
 		dao.remove(task);
 
-		return "redirect:listaTarefas";
+		return "redirect:listTask";
 
 	}
 
@@ -69,16 +74,16 @@ public class TaskController {
 
 	}
 
-	@RequestMapping("alteraTarefa")
+	@RequestMapping("updateTask")
 	public String edit(Task task) {
 
 		dao.update(task);
 
-		return "redirect:listaTarefas";
+		return "redirect:listTask";
 
 	}
 
-	@RequestMapping("finalizaTarefa")
+	@RequestMapping("finalizeTask")
 	public String finalize(Long id, Model model) {
 
 		Task task = dao.findById(id);
@@ -86,9 +91,9 @@ public class TaskController {
 		task.setFinalized(true);
 		dao.update(task);
 
-		model.addAttribute("tarefa", dao.findById(id));
+		model.addAttribute("task", dao.findById(id));
 
-		return "tarefa/finalizada";
+		return "task/_finalized";
 
 	}
 

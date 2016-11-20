@@ -27,10 +27,10 @@
 	<br />
 
 
-	<a href="http://localhost:8080/learning-java-web/novaTarefa">Add
+	<a href="http://localhost:8080/learning-java-web/newTask">Add
 		Tarefa</a>
 	<br />
-	<a href="http://localhost:8080/learning-java-web/listaTarefas">List
+	<a href="http://localhost:8080/learning-java-web/listTask">List
 		Tarefa</a>
 	<br />
 	<a href="http://localhost:8080/learning-java-web/loginForm">Login </a>

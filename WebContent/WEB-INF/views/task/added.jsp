@@ -8,5 +8,8 @@
 </head>
 <body>
 	<h3>Nova tarefa adicionada com sucesso!</h3>
+	<p>Desc: ${task.description}.</p>
+	
+	
 </body>
 </html>
