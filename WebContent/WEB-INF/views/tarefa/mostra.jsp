@@ -14,16 +14,16 @@
     <input type="hidden" name="id" value="${tarefa.id}" />
   
     Descrição:<br />
-    <textarea name="descricao" cols="100" rows="5"> ${tarefa.descricao} </textarea>
+    <textarea name="descricao" cols="100" rows="5"> ${tarefa.description} </textarea>
     <br />      
 
     Finalizado? <input type="checkbox" name="finalizado" 
-      value="true" ${tarefa.finalizado? 'checked' : '' }/> <br />      
+      value="true" ${tarefa.finalized? 'checked' : '' }/> <br />      
 
     Data de finalização: <br />
     <input type="text" name="dataFinalizacao" 
       value="<fmt:formatDate 
-      value="${tarefa.dataFinalizacao.time}" 
+      value="${tarefa.finishingDate.time}" 
       pattern="dd/MM/yyyy" />"/> 
     <br />
   

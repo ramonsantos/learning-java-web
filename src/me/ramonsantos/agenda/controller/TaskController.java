@@ -1,4 +1,6 @@
-package me.ramonsantos.controller;
+package me.ramonsantos.agenda.controller;
+
+import java.util.Calendar;
 
 import javax.validation.Valid;
 
@@ -9,21 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import me.ramonsantos.dao.JdbcTarefaDao;
-import me.ramonsantos.model.Tarefa;
+import me.ramonsantos.agenda.dao.ITaskDao;
+import me.ramonsantos.agenda.model.Task;
 
 @Transactional
 @Controller
-public class TarefasController {
-
-	private final JdbcTarefaDao dao;
+public class TaskController {
 
 	@Autowired
-	public TarefasController(JdbcTarefaDao dao) {
-
-		this.dao = dao;
-
-	}
+	ITaskDao dao;
 
 	@RequestMapping("novaTarefa")
 	public String form() {
@@ -32,61 +28,65 @@ public class TarefasController {
 
 	}
 
-	@RequestMapping("adicionaTarefa")
-	public String adiciona(@Valid Tarefa tarefa, BindingResult result) {
+	@RequestMapping("addTask")
+	public String add(@Valid Task task, BindingResult result) {
 
-		if (result.hasFieldErrors("descricao")) {
+		if (result.hasFieldErrors("description")) {
 
 			return "tarefa/formulario";
 
 		}
 
-		dao.adiciona(tarefa);
+		dao.add(task);
 		return "tarefa/adicionada";
 
 	}
 
 	@RequestMapping("listaTarefas")
-	public String lista(Model model) {
+	public String list(Model model) {
 
-		model.addAttribute("tarefas", dao.lista());
+		model.addAttribute("tasks", dao.list());
 
 		return "tarefa/lista";
 
 	}
 
 	@RequestMapping("removeTarefa")
-	public String remove(Tarefa tarefa) {
+	public String remove(Task task) {
 
-		dao.remove(tarefa);
+		dao.remove(task);
 
 		return "redirect:listaTarefas";
 
 	}
 
 	@RequestMapping("mostraTarefa")
-	public String mostra(Long id, Model model) {
+	public String show(Long id, Model model) {
 
-		model.addAttribute("tarefa", dao.buscaPorId(id));
+		model.addAttribute("tarefa", dao.findById(id));
 
 		return "tarefa/mostra";
 
 	}
 
 	@RequestMapping("alteraTarefa")
-	public String altera(Tarefa tarefa) {
+	public String edit(Task task) {
 
-		dao.altera(tarefa);
+		dao.update(task);
 
 		return "redirect:listaTarefas";
 
 	}
 
 	@RequestMapping("finalizaTarefa")
-	public String finaliza(Long id, Model model) {
+	public String finalize(Long id, Model model) {
 
-		dao.finaliza(id);
-		model.addAttribute("tarefa", dao.buscaPorId(id));
+		Task task = dao.findById(id);
+		task.setFinishingDate(Calendar.getInstance());
+		task.setFinalized(true);
+		dao.update(task);
+
+		model.addAttribute("tarefa", dao.findById(id));
 
 		return "tarefa/finalizada";
 

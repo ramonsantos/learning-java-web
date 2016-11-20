@@ -31,25 +31,25 @@
 			<th>Finalizado?</th>
 			<th>Data de finalização</th>
 		</tr>
-		<c:forEach items="${tarefas}" var="tarefa">
-			<tr id="tarefa_${tarefa.id}">
-				<td>${tarefa.id}</td>
-				<td>${tarefa.descricao}</td>
+		<c:forEach items="${tasks}" var="task">
+			<tr id="tarefa_${task.id}">
+				<td>${task.id}</td>
+				<td>${task.description}</td>
 				
-				<c:if test="${tarefa.finalizado eq false}">
+				<c:if test="${task.finalized eq false}">
 					<td>
-				    	<a href="#" onClick="finalizaAgora(${tarefa.id})">Finalizar!</a>
+				    	<a href="#" onClick="finalizaAgora(${task.id})">Finalizar!</a>
 				  	</td>
 				</c:if>
-				<c:if test="${tarefa.finalizado eq true}">
+				<c:if test="${task.finalized eq true}">
 					<td>Finalizado</td>
 				</c:if>
-				<td><fmt:formatDate value="${tarefa.dataFinalizacao.time}"
+				<td><fmt:formatDate value="${task.finishingDate.time}"
 						pattern="dd/MM/yyyy" /></td>
 						
-				<td><a href="removeTarefa?id=${tarefa.id}">Remover</a></td>
+				<td><a href="removeTarefa?id=${task.id}">Remover</a></td>
 				
-				<td><a href="mostraTarefa?id=${tarefa.id}">Alterar</a></td>
+				<td><a href="mostraTarefa?id=${task.id}">Alterar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
