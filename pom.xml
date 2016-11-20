@@ -19,7 +19,7 @@
 		<slf4j.version>1.6.1</slf4j.version>
 
 		<!-- Spring Framework -->
-		<spring-framework.version>3.2.17.RELEASE</spring-framework.version>
+		<spring-framework.version>4.0.3.RELEASE</spring-framework.version>
 
 		<!-- MySQL Drive -->
 		<mysql-drive.version>5.1.35</mysql-drive.version>
@@ -103,6 +103,13 @@
 			<version>${spring-framework.version}</version>
 		</dependency>
 
+		<!-- Spring Transaction -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
 		<!-- Spring Web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -177,7 +184,7 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
+			<version>1.0.0.GA</version>
 		</dependency>
 
 		<!-- Dom4j -->
