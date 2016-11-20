@@ -9,22 +9,30 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import me.ramonsantos.jdbc.ConnectionFactory;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import me.ramonsantos.model.Tarefa;
 
+@Repository
 public class JdbcTarefaDao {
 
 	private Connection connection;
 
-	public JdbcTarefaDao() {
+	@Autowired
+	public JdbcTarefaDao(DataSource dataSource) {
 
-		this.connection = new ConnectionFactory().getConnection();
+		try {
 
-	}
+			this.connection = dataSource.getConnection();
 
-	public JdbcTarefaDao(Connection connection) {
+		} catch (SQLException e) {
 
-		this.connection = connection;
+			throw new RuntimeException(e);
+
+		}
 
 	}
 

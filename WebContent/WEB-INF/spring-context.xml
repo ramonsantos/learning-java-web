@@ -30,6 +30,8 @@
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
+	
+	
 
 	<!-- gerenciamento de jpa pelo spring -->
 	<bean id="entityManagerFactory"
