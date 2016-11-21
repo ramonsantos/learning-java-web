@@ -5,23 +5,16 @@
 	version="2.0">
 
 	<persistence-unit name="learning-java-wew-pu">
-
-		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<!-- entidade mapeada -->
 		<class>me.ramonsantos.agenda.model.Task</class>
+		<class>me.ramonsantos.agenda.model.Contact</class>
 
 		<properties>
-
-			<!-- propriedades do hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-
-			<!-- atualiza o banco, gera as tabelas se for preciso -->
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-
 		</properties>
 	</persistence-unit>
 </persistence>
