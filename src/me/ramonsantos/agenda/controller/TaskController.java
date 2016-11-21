@@ -57,20 +57,18 @@ public class TaskController {
 	@RequestMapping("removeTask")
 	public String remove(Task task) {
 
-		System.out.println("Id:- " + task.getId());
-		System.out.println("Desc: " + task.getDescription());
 		dao.remove(task);
 
 		return "redirect:listTask";
 
 	}
 
-	@RequestMapping("mostraTarefa")
+	@RequestMapping("showTask")
 	public String show(Long id, Model model) {
 
-		model.addAttribute("tarefa", dao.findById(id));
+		model.addAttribute("task", dao.findById(id));
 
-		return "tarefa/mostra";
+		return "task/show";
 
 	}
 

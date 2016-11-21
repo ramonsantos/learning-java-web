@@ -6,4 +6,4 @@
 <td><fmt:formatDate value="${task.finishingDate.time}"
 		pattern="dd/MM/yyyy" /></td>
 <td><a href="removeTask?id=${task.id}">Remover</a></td>
-<td><a href="updateTask?id=${task.id}">Alterar</a></td>
+<td><a href="showTask?id=${task.id}">Alterar</a></td>

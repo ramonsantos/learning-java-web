@@ -48,7 +48,7 @@
 
 				<td><a href="removeTask?id=${task.id}">Remover</a></td>
 
-				<td><a href="updateTask?id=${task.id}">Alterar</a></td>
+				<td><a href="showTask?id=${task.id}">Alterar</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -27,6 +27,7 @@ public class TaskDao implements ITaskDao {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Task> list() {
 
 		return manager.createQuery("select t from Task t").getResultList();
