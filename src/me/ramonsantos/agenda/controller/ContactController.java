@@ -42,13 +42,40 @@ public class ContactController {
 		return "contact/added";
 
 	}
-	
+
 	@RequestMapping("listContact")
 	public String list(Model model) {
 
 		model.addAttribute("contacts", dao.list());
 
 		return "contact/list";
+
+	}
+
+	@RequestMapping("removeContact")
+	public String remove(Contact contact) {
+
+		dao.remove(contact);
+
+		return "redirect:listContact";
+
+	}
+
+	@RequestMapping("showContact")
+	public String show(Long id, Model model) {
+
+		model.addAttribute("contact", dao.findById(id));
+
+		return "contact/show";
+
+	}
+
+	@RequestMapping("updateContact")
+	public String edit(Contact contact) {
+
+		dao.update(contact);
+
+		return "redirect:listContact";
 
 	}
 
