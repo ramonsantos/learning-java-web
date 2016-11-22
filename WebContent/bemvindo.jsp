@@ -32,7 +32,17 @@
 	<br />
 	<a href="http://localhost:8080/learning-java-web/listTask">List
 		Tarefa</a>
+	<br /><br /><br />
+	
+	
+	<a href="http://localhost:8080/learning-java-web/newContact">Add
+		Contato</a>
 	<br />
+	<a href="http://localhost:8080/learning-java-web/listContact">List
+		Contato</a>
+	<br />
+	
+	<br /><br /><br />
 	<a href="http://localhost:8080/learning-java-web/loginForm">Login </a>
 
 	<%
