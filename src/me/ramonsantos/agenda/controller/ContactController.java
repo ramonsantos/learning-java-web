@@ -42,5 +42,14 @@ public class ContactController {
 		return "contact/added";
 
 	}
+	
+	@RequestMapping("listContact")
+	public String list(Model model) {
+
+		model.addAttribute("contacts", dao.list());
+
+		return "contact/list";
+
+	}
 
 }

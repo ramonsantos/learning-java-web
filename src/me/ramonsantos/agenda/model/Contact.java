@@ -25,7 +25,6 @@ public class Contact {
 	@Size(min = 5)
 	private String name;
 	private String email;
-	private String address;
 	private String phone;
 
 	@Temporal(TemporalType.DATE)
@@ -69,18 +68,6 @@ public class Contact {
 	public void setEmail(String email) {
 
 		this.email = email;
-
-	}
-
-	public String getAddress() {
-
-		return address;
-
-	}
-
-	public void setAddress(String address) {
-
-		this.address = address;
 
 	}
 

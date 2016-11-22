@@ -20,8 +20,6 @@
 		<br />
 		Email: <input type="text" name="email"/>
 		<br />
-		Endereço: <input type="text" name="address"/>
-		<br />
 		Telefone: <input type="text" name="phone"/>
 		<br /> 
 		Data da Nascimento: <caelum:campoData id="birthDate" />
