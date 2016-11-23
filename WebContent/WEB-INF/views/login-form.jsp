@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
  <body>
-    <h2>Página de Login das Tarefas</h2>
+    <h2>Login</h2>
     <form action="login" method="post">
       Login: <input type="text" name="userName" /> <br /> 
       Senha: <input type="password" name="password" /> <br />
-      <input type="submit" value="Entrar nas tarefas" /> 
+      <input type="submit" value="Entrar" /> 
     </form>
   </body>
 </html>

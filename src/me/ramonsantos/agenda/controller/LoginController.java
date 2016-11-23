@@ -31,7 +31,7 @@ public class LoginController {
 
 			session.setAttribute("userCurrent", user);
 
-			return "menu";
+			return "index";
 
 		}
 
