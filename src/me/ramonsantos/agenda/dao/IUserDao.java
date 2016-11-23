@@ -10,6 +10,6 @@ public interface IUserDao {
 
 	public abstract User findById(Long id);
 
-	public abstract boolean isUserValid(User user);
+	public abstract User isUserValid(User user);
 
 }

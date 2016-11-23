@@ -37,9 +37,17 @@ public class UserDao implements IUserDao {
 	}
 
 	@Override
-	public boolean isUserValid(User user) {
+	public User isUserValid(User user) {
 
-		return this.list().contains(user);
+		int index = this.list().indexOf(user);
+
+		if (index == -1) {
+
+			return null;
+
+		}
+
+		return this.list().get(index);
 
 	}
 

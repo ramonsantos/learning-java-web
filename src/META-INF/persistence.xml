@@ -9,6 +9,7 @@
 
 		<class>me.ramonsantos.agenda.model.Task</class>
 		<class>me.ramonsantos.agenda.model.Contact</class>
+		<class>me.ramonsantos.agenda.model.User</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
