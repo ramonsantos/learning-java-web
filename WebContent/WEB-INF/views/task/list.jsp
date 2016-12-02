@@ -1,56 +1,73 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="resources/js/jquery.js"></script>
+  <%@ include file="../_head.jsp" %>
+
+  <script type="text/javascript">
+    function finalizaAgora(id) {
+      $.post("finalizeTask", {'id' : id}, function(resposta) {
+        $("#task_"+id).html(resposta);
+      });
+    }
+  </script>
 </head>
+
 <body>
+  <%@ include file="../_header.jsp" %>
 
-	<script type="text/javascript">
-	  function finalizaAgora(id) {
-	    $.post("finalizeTask", {'id' : id}, function(resposta) {
-	      $("#task_"+id).html(resposta);
-	    });
-	  }
-	</script>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h1>Tarefas</h1>
+      </div>
+    </div>
 
-	<a href="newTask">Criar nova tarefa</a>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Descrição</th>
+              <th>Status</th>
+              <th>Data de Finalização</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach items="${tasks}" var="task">
+              <tr id="task_${task.id}">
+                <td scope="row">${task.id}</td>
+                <td>${task.description}</td>
 
-	<br />
-	<br />
+                <c:if test="${task.finalized eq false}">
+                  <td><a href="#" onClick="finalizaAgora(${task.id})">Finalizar!</a></td>
+                </c:if>
 
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>Descrição</th>
-			<th>Finalizado?</th>
-			<th>Data de finalização</th>
-		</tr>
-		<c:forEach items="${tasks}" var="task">
-			<tr id="task_${task.id}">
-				<td>${task.id}</td>
-				<td>${task.description}</td>
+                <c:if test="${task.finalized eq true}">
+                  <td>Finalizada</td>
+                </c:if>
 
-				<c:if test="${task.finalized eq false}">
-					<td><a href="#" onClick="finalizaAgora(${task.id})">Finalizar!</a>
-					</td>
-				</c:if>
-				<c:if test="${task.finalized eq true}">
-					<td>Finalizada</td>
-				</c:if>
-				<td><fmt:formatDate value="${task.finishingDate.time}"
-						pattern="dd/MM/yyyy" /></td>
+                <td><fmt:formatDate value="${task.finishingDate.time}" pattern="dd/MM/yyyy" /></td>
 
-				<td><a href="removeTask?id=${task.id}">Remover</a></td>
+                <td><a href="removeTask?id=${task.id}">Remover</a></td>
+                <td><a href="showTask?id=${task.id}">Alterar</a></td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-				<td><a href="showTask?id=${task.id}">Alterar</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <p><a href="newTask" class="btn btn-primary" role="button">Criar nova tarefa</a></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

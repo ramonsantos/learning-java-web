@@ -7,4 +7,5 @@
   <link href="resources/css/bootstrap.css" rel="stylesheet">
   <link href="resources/css/bootstrap-theme.css" rel="stylesheet">
 
-  <script src="resources/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="resources/js/jquery.js"></script>
