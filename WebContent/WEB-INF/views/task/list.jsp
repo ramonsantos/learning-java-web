@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1>Tarefas</h1>
+        <h1 style="text-align: center">Tarefas</h1>
       </div>
     </div>
 

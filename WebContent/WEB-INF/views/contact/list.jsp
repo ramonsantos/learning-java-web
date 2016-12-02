@@ -1,42 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="resources/js/jquery.js"></script>
+  <%@ include file="../_head.jsp" %>
 </head>
+
 <body>
+  <%@ include file="../_header.jsp" %>
 
-	<a href="newContact">Criar nova contato</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h1 style="text-align: center">Contatos</h1>
+      </div>
+    </div>
 
-	<br />
-	<br />
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Aniversário</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach items="${contacts}" var="contact">
+              <tr id="task_${contact.id}">
+                <td scope="row">${contact.id}</td>
+                <td>${contact.name}</td>
+                <td>${contact.email}</td>
+                <td>${contact.phone}</td>
 
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>Nome</th>
-			<th>Email</th>
-			<th>Telefone</th>
-			<th>Data de finalização</th>
-		</tr>
-		<c:forEach items="${contacts}" var="contact">
-			<tr id="contact_${contact.id}">
-				<td>${contact.id}</td>
-				<td>${contact.name}</td>
-				<td>${contact.email}</td>
-				<td>${contact.phone}</td>
-				<td><fmt:formatDate value="${contact.birthDate.time}" pattern="dd/MM/yyyy" /></td>
+                <td><fmt:formatDate value="${contact.birthDate.time}" pattern="dd/MM/yyyy" /></td>
 
-				<td><a href="removeContact?id=${contact.id}">Remover</a></td>
+                <td><a href="removeContact?id=${contact.id}">Remover</a></td>
+                <td><a href="showContact?id=${contact.id}">Alterar</a></td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-				<td><a href="showContact?id=${contact.id}">Alterar</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <p><a href="newContact" class="btn btn-primary" role="button">Criar novo contato</a></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

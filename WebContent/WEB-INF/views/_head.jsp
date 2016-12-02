@@ -2,7 +2,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Agena - Learning Java Web</title>
+  <title>Agenda - Learning Java Web</title>
 
   <link href="resources/css/bootstrap.css" rel="stylesheet">
   <link href="resources/css/bootstrap-theme.css" rel="stylesheet">
