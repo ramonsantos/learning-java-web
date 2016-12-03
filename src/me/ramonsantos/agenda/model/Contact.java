@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Table(name = "contacts")
@@ -24,6 +25,8 @@ public class Contact {
 	@NotNull
 	@Size(min = 5)
 	private String name;
+
+	@Email
 	private String email;
 	private String phone;
 

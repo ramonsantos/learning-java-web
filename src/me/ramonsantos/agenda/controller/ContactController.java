@@ -31,15 +31,16 @@ public class ContactController {
 
 		if (result.hasFieldErrors("description")) {
 
-			return "contact/form";
+			return "redirect:newContact";
 
 		}
 
 		dao.add(contact);
 
-		model.addAttribute("contact", dao.findById(contact.getId()));
+		model.addAttribute("newContact", contact);
+		model.addAttribute("contacts", dao.list());
 
-		return "contact/added";
+		return "contact/list";
 
 	}
 
