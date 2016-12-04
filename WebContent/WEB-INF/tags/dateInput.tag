@@ -2,8 +2,9 @@
 <%@ attribute name="id" required="true"%>
 <%@ attribute name="cls" required="false"%>
 <%@ attribute name="valDate" required="false" %>
+<%@ attribute name="placeH" required="false" %>
 
-<input id="${id}" name="${id}" class="${cls}" value="${valDate}"/>
+<input id="${id}" name="${id}" class="${cls}" value="${valDate}" placeholder="${placeH}"/>
 <script>
   $("#${id}").datepicker({
     dateFormat : 'dd/mm/yy'

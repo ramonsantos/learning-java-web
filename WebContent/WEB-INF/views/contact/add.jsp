@@ -14,13 +14,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1 style="text-align: center">Contato: ${contact.name}</h1>
+        <h1 style="text-align: center">Cadastrar Contato</h1>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <form action="updateContact" method="post" class="form-horizontal">
+        <form action="addContact" method="post" class="form-horizontal">
 
           <%@ include file="_form.jsp" %>
 

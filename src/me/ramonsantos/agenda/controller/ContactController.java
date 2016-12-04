@@ -22,14 +22,14 @@ public class ContactController {
 	@RequestMapping("newContact")
 	public String form() {
 
-		return "contact/form";
+		return "contact/add";
 
 	}
 
 	@RequestMapping("addContact")
 	public String add(@Valid Contact contact, BindingResult result, Model model) {
 
-		if (result.hasFieldErrors("description")) {
+		if (result.hasFieldErrors("name")) {
 
 			return "redirect:newContact";
 
