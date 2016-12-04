@@ -28,6 +28,8 @@ public class Contact {
 
 	@Email
 	private String email;
+
+	@Size(max = 20)
 	private String phone;
 
 	@Temporal(TemporalType.DATE)

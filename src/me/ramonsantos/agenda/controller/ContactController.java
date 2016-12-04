@@ -29,9 +29,9 @@ public class ContactController {
 	@RequestMapping("addContact")
 	public String add(@Valid Contact contact, BindingResult result, Model model) {
 
-		if (result.hasFieldErrors("name")) {
+		if (result.hasFieldErrors()) {
 
-			return "redirect:newContact";
+			return "contact/add";
 
 		}
 
