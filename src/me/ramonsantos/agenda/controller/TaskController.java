@@ -24,24 +24,25 @@ public class TaskController {
 	@RequestMapping("newTask")
 	public String form() {
 
-		return "task/form";
+		return "task/add";
 
 	}
 
 	@RequestMapping("addTask")
 	public String add(@Valid Task task, BindingResult result, Model model) {
 
-		if (result.hasFieldErrors("description")) {
+		if (result.hasFieldErrors()) {
 
-			return "task/form";
+			return "task/add";
 
 		}
 
 		dao.add(task);
 
-		model.addAttribute("task", dao.findById(task.getId()));
+		model.addAttribute("newTask", task);
+		model.addAttribute("tasks", dao.list());
 
-		return "task/added";
+		return "task/list";
 
 	}
 
