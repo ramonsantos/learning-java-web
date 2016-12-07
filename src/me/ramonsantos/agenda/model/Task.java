@@ -5,6 +5,7 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,6 +35,9 @@ public class Task {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar finishingDate;
+
+	@ManyToOne
+	private User userTask;
 
 	public Task() {
 
@@ -98,6 +102,18 @@ public class Task {
 	public void setId(Long id) {
 
 		this.id = id;
+
+	}
+
+	public User getUserTask() {
+
+		return userTask;
+
+	}
+
+	public void setUserTask(User userTask) {
+
+		this.userTask = userTask;
 
 	}
 

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,6 +36,9 @@ public class Contact {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar birthDate;
+
+	@ManyToOne
+	private User userContact;
 
 	public Contact() {
 
@@ -97,6 +101,18 @@ public class Contact {
 	public void setPhone(String phone) {
 
 		this.phone = phone;
+
+	}
+
+	public User getUserContact() {
+
+		return userContact;
+
+	}
+
+	public void setUserContact(User userContact) {
+
+		this.userContact = userContact;
 
 	}
 

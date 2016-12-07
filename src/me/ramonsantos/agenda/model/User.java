@@ -1,9 +1,12 @@
 
 package me.ramonsantos.agenda.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,14 +24,20 @@ public class User {
 	@NotNull
 	@Size(min = 5)
 	private String fullName;
-	
+
 	@Email
 	@NotNull
 	private String email;
-	
+
 	@NotNull
 	@Size(min = 6)
 	private String password;
+
+	@OneToMany(mappedBy = "userTask")
+	private List<Task> listTask;
+
+	@OneToMany(mappedBy = "userContact")
+	private List<Contact> listContact;
 
 	public User() {
 
@@ -79,6 +88,30 @@ public class User {
 	public void setId(Long id) {
 
 		this.id = id;
+
+	}
+
+	public List<Task> getListTask() {
+
+		return listTask;
+
+	}
+
+	public void setListTask(List<Task> listTask) {
+
+		this.listTask = listTask;
+
+	}
+
+	public List<Contact> getListContact() {
+
+		return listContact;
+
+	}
+
+	public void setListContact(List<Contact> listContact) {
+
+		this.listContact = listContact;
 
 	}
 
