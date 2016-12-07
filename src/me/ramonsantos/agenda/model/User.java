@@ -1,9 +1,14 @@
+
 package me.ramonsantos.agenda.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Table(name = "users")
 @Entity
@@ -13,8 +18,16 @@ public class User {
 	@GeneratedValue
 	private Long id;
 
+	@NotNull
+	@Size(min = 5)
 	private String fullName;
-	private String userName;
+	
+	@Email
+	@NotNull
+	private String email;
+	
+	@NotNull
+	@Size(min = 6)
 	private String password;
 
 	public User() {
@@ -33,15 +46,15 @@ public class User {
 
 	}
 
-	public String getUserName() {
+	public String getEmail() {
 
-		return userName;
+		return email;
 
 	}
 
-	public void setUserName(String userName) {
+	public void setEmail(String email) {
 
-		this.userName = userName;
+		this.email = email;
 
 	}
 
@@ -74,7 +87,7 @@ public class User {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		return result;
 	}
 
@@ -92,10 +105,10 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (userName == null) {
-			if (other.userName != null)
+		if (email == null) {
+			if (other.email != null)
 				return false;
-		} else if (!userName.equals(other.userName))
+		} else if (!email.equals(other.email))
 			return false;
 		return true;
 	}

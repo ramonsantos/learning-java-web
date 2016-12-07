@@ -1,9 +1,13 @@
 package me.ramonsantos.agenda.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import me.ramonsantos.agenda.dao.IUserDao;
@@ -45,6 +49,23 @@ public class LoginController {
 		session.invalidate();
 
 		return "redirect:loginForm";
+
+	}
+
+	@Transactional
+	@RequestMapping("newUser")
+	public String newUser(@Valid User user, BindingResult result, Model model) {
+
+		if (result.hasFieldErrors()) {
+
+			return "login-form";
+
+		}
+
+		dao.add(user);
+		model.addAttribute("newUserModel", user);
+
+		return "login-form";
 
 	}
 

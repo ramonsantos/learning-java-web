@@ -13,7 +13,8 @@ public class AuthorizerInterceptor extends HandlerInterceptorAdapter {
 
 		String uri = request.getRequestURI();
 
-		if (uri.endsWith("loginForm") || uri.endsWith("login") || uri.contains("resources")) {
+		if (uri.endsWith("loginForm") || uri.endsWith("login") || uri.endsWith("newUser")
+				|| uri.contains("resources")) {
 
 			return true;
 
