@@ -31,6 +31,7 @@
           <thead>
             <tr>
               <th>Id</th>
+              <th>Título</th>
               <th>Descrição</th>
               <th>Status</th>
               <th>Data de Finalização</th>
@@ -42,6 +43,7 @@
             <c:forEach items="${tasks}" var="task">
               <tr id="task_${task.id}">
                 <td scope="row">${task.id}</td>
+                <td>${task.title}</td>
                 <td>${task.description}</td>
 
                 <c:if test="${task.finalized eq false}">

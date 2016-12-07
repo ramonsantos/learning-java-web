@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <td>${task.id}</td>
+<td>${task.title}</td>
 <td>${task.description}</td>
 <td>Finalizada</td>
 <td><fmt:formatDate value="${task.finishingDate.time}"
