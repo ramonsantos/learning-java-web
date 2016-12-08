@@ -5,9 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import me.ramonsantos.agenda.model.Contact;
+import me.ramonsantos.agenda.model.User;
 
 @Repository
 public class ContactDao implements IContactDao {
@@ -50,6 +54,18 @@ public class ContactDao implements IContactDao {
 	public List<Contact> list() {
 
 		return this.manager.createQuery("select c from Contact c").getResultList();
+
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Contact> listByUser(User user) {
+
+		Session session = manager.unwrap(Session.class);
+
+		Criteria cri = session.createCriteria(Contact.class);
+
+		return cri.add(Restrictions.eq("userContact", user)).list();
 
 	}
 

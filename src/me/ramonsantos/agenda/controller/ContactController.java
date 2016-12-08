@@ -1,5 +1,6 @@
 package me.ramonsantos.agenda.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import me.ramonsantos.agenda.dao.IContactDao;
 import me.ramonsantos.agenda.model.Contact;
+import me.ramonsantos.agenda.model.User;
 
 @Transactional
 @Controller
@@ -35,10 +39,11 @@ public class ContactController {
 
 		}
 
+		contact.setUserContact(getCurrentUser());
 		dao.add(contact);
 
 		model.addAttribute("newContact", contact);
-		model.addAttribute("contacts", dao.list());
+		model.addAttribute("contacts", dao.listByUser(getCurrentUser()));
 
 		return "contact/list";
 
@@ -47,7 +52,7 @@ public class ContactController {
 	@RequestMapping("listContact")
 	public String list(Model model) {
 
-		model.addAttribute("contacts", dao.list());
+		model.addAttribute("contacts", dao.listByUser(getCurrentUser()));
 
 		return "contact/list";
 
@@ -77,6 +82,15 @@ public class ContactController {
 		dao.update(contact);
 
 		return "redirect:listContact";
+
+	}
+
+	private User getCurrentUser() {
+
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession();
+
+		return (User) session.getAttribute("userCurrent");
 
 	}
 

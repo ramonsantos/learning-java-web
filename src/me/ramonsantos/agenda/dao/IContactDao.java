@@ -3,6 +3,7 @@ package me.ramonsantos.agenda.dao;
 import java.util.List;
 
 import me.ramonsantos.agenda.model.Contact;
+import me.ramonsantos.agenda.model.User;
 
 public interface IContactDao {
 
@@ -15,5 +16,7 @@ public interface IContactDao {
 	public abstract Contact findById(Long id);
 
 	public abstract List<Contact> list();
+
+	public abstract List<Contact> listByUser(User user);
 
 }
