@@ -27,7 +27,7 @@
 </div>
 
 <div class="form-group">
-  <label for="inputAniversario" class="col-sm-2 control-label">Aniversário</label>
+  <label for="birthDate" class="col-sm-2 control-label">Aniversário</label>
   <div class="col-sm-10">
     <t:dateInput id="birthDate" cls="form-control" valDate="${contact.birthDate.time}" placeH="Data de Nascimento"/>
     <form:errors path="contact.birthDate" style="color: red"/>

@@ -5,9 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import me.ramonsantos.agenda.model.Task;
+import me.ramonsantos.agenda.model.User;
 
 @Repository
 public class TaskDao implements ITaskDao {
@@ -50,6 +54,18 @@ public class TaskDao implements ITaskDao {
 		Task taskR = this.findById(task.getId());
 
 		this.manager.remove(taskR);
+
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Task> listByUser(User user) {
+
+		Session session = manager.unwrap(Session.class);
+
+		Criteria cri = session.createCriteria(Task.class);
+
+		return cri.add(Restrictions.eq("userTask", user)).list();
 
 	}
 

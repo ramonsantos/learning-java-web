@@ -1,1 +1,8 @@
-# learning-java-web
+# Technologies
+
+* Java;
+* JSP;
+* JPA/Hibernate;
+* Spring;
+* MySQL;
+* Bootstrap.
