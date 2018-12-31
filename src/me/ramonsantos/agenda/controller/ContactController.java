@@ -21,7 +21,7 @@ import me.ramonsantos.agenda.model.User;
 public class ContactController {
 
 	@Autowired
-	IContactDao dao;
+	private IContactDao dao;
 
 	@RequestMapping("newContact")
 	public String form() {

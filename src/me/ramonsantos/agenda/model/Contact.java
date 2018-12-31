@@ -40,10 +40,6 @@ public class Contact {
 	@ManyToOne
 	private User userContact;
 
-	public Contact() {
-
-	}
-
 	public Long getId() {
 
 		return id;

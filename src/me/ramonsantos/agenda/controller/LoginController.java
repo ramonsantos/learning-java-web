@@ -17,7 +17,7 @@ import me.ramonsantos.agenda.model.User;
 public class LoginController {
 
 	@Autowired
-	IUserDao dao;
+	private IUserDao dao;
 
 	@RequestMapping("loginForm")
 	public String loginForm() {

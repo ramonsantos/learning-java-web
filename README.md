@@ -1,8 +1,8 @@
 # Technologies
 
-* Java;
-* JSP;
-* JPA/Hibernate;
-* Spring;
-* MySQL;
-* Bootstrap.
+  * Java;
+  * JSP;
+  * JPA/Hibernate;
+  * Spring;
+  * MySQL;
+  * Bootstrap.

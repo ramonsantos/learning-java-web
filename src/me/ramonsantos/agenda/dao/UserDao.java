@@ -13,7 +13,7 @@ import me.ramonsantos.agenda.model.User;
 public class UserDao implements IUserDao {
 
 	@PersistenceContext
-	EntityManager manager;
+	private EntityManager manager;
 
 	@Override
 	public void add(User user) {

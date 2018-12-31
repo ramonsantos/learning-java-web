@@ -17,7 +17,7 @@ import me.ramonsantos.agenda.model.User;
 public class ContactDao implements IContactDao {
 
 	@PersistenceContext
-	EntityManager manager;
+	private EntityManager manager;
 
 	@Override
 	public void add(Contact c) {

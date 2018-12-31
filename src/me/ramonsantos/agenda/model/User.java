@@ -39,10 +39,6 @@ public class User {
 	@OneToMany(mappedBy = "userContact")
 	private List<Contact> listContact;
 
-	public User() {
-
-	}
-
 	public String getFullName() {
 
 		return fullName;

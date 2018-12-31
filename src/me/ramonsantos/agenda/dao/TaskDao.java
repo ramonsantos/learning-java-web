@@ -17,7 +17,7 @@ import me.ramonsantos.agenda.model.User;
 public class TaskDao implements ITaskDao {
 
 	@PersistenceContext
-	EntityManager manager;
+	private EntityManager manager;
 
 	@Override
 	public void add(Task task) {

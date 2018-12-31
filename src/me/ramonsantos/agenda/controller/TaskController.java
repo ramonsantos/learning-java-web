@@ -23,7 +23,7 @@ import me.ramonsantos.agenda.model.User;
 public class TaskController {
 
 	@Autowired
-	ITaskDao dao;
+	private ITaskDao dao;
 
 	@RequestMapping("newTask")
 	public String form() {
